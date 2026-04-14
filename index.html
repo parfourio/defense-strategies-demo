@@ -201,6 +201,9 @@
                 padding: 8px 16px;
                 font-size: 10px;
             }
+            .nav-hide {
+                display: none;
+            }
         }
 
         /* ============ HERO SECTION ============ */
@@ -658,6 +661,137 @@
             }
         }
 
+        /* ============ REVIEWS SECTION ============ */
+        #reviews {
+            background-color: #1a2a3a;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background: rgba(13,17,23,0.5);
+            border: 1px solid rgba(138,155,176,0.12);
+            padding: 32px 28px;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .review-card:hover {
+            border-color: rgba(138,155,176,0.3);
+        }
+
+        .review-stars {
+            color: #c8860a;
+            font-size: 16px;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: #c8d4e0;
+            line-height: 1.75;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.95rem;
+            color: #8a9bb0;
+            letter-spacing: 1px;
+        }
+
+        /* ============ TTG SKIRMISH SECTION ============ */
+        #skirmish {
+            background-color: #0d1117;
+        }
+
+        .skirmish-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .skirmish-desc {
+            font-size: 14px;
+            color: #8a9bb0;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .skirmish-events {
+            margin-top: 0;
+        }
+
+        .skirmish-events h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #8a9bb0;
+            margin-bottom: 20px;
+        }
+
+        .event-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(138,155,176,0.1);
+        }
+
+        .event-row:last-child { border-bottom: none; }
+
+        .event-date {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: 1px;
+            min-width: 90px;
+        }
+
+        .event-label {
+            font-size: 12px;
+            color: #8a9bb0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+
+        .event-register {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #253551;
+            text-decoration: none;
+            border: 1px solid rgba(37,53,81,0.6);
+            padding: 6px 14px;
+            border-radius: 2px;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .event-register:hover {
+            background: rgba(37,53,81,0.3);
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .skirmish-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
         /* ============ CONTACT SECTION ============ */
         #contact {
             background-color: #0d1117;
@@ -786,8 +920,9 @@
         </div>
         <ul class="nav-links">
             <li><a href="#training">Training</a></li>
-            <li><a href="#security">Security</a></li>
-            <li><a href="#about">About</a></li>
+            <li class="nav-hide"><a href="#security">Security</a></li>
+            <li class="nav-hide"><a href="#skirmish">Skirmish</a></li>
+            <li class="nav-hide"><a href="#about">Team</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="tel:+14242358758" class="cta-button">Book Now</a></li>
         </ul>
@@ -829,7 +964,7 @@
     <!-- TRAINING SECTION -->
     <section id="training">
         <h2>Tactical Training</h2>
-        <p class="subtitle">Take your skills to the next level. Spend the day working one-on-one or in small groups, focusing on range time, outdoor skills, and mental toughness. Up to 5 spaces per class — Los Angeles area.</p>
+        <p class="subtitle">We empower individuals and communities through world-class training. Defense Strategies Group is a collective of Special Operations Combat Veterans dedicated to continued service — sharing decades of real-world experience. Up to 5 spaces per class · Los Angeles area.</p>
 
         <div class="training-grid">
             <div class="training-card">
@@ -861,33 +996,100 @@
 
     <!-- SECURITY SECTION -->
     <section id="security">
-        <h2>Security Consulting</h2>
-        <p class="subtitle">Data-driven intelligence and strategic planning to identify, assess, and eliminate threats to your organization.</p>
+        <h2>Security &amp; Protection</h2>
+        <p class="subtitle">Delivering elite security and protection through decades of proven Special Operations expertise.</p>
 
         <div class="security-grid">
             <div class="security-card">
-                <h3>Threat Assessment</h3>
-                <p>Comprehensive evaluation of your current threat landscape. Competitive analysis, geopolitical exposure, and personnel vulnerability profiles.</p>
-            </div>
-            <div class="security-card">
-                <h3>Security Architecture</h3>
-                <p>Build a scalable security infrastructure. Strategic planning and implementation of physical, cyber, and personnel security frameworks.</p>
-            </div>
-            <div class="security-card">
-                <h3>Crisis Management</h3>
-                <p>Preparation and response planning for worst-case scenarios. Protocols, communication strategies, and recovery frameworks.</p>
+                <h3>Executive Protection</h3>
+                <p>Discreet protection and risk mitigation for high-profile individuals and businesses. Our operators blend seamlessly into your environment while maintaining an unwavering security posture.</p>
             </div>
             <div class="security-card">
                 <h3>Travel Security</h3>
-                <p>Comprehensive protection for high-risk travel. Route planning, accommodation security, ground coordination, and real-time incident response.</p>
+                <p>Ensuring your safety and peace of mind no matter where your journey takes you. Comprehensive route planning, ground coordination, and real-time incident response for domestic and international travel.</p>
             </div>
             <div class="security-card">
-                <h3>Cyber Intelligence</h3>
-                <p>Blend of technical security and human intelligence. Digital risk assessment, vulnerability mapping, and strategic protection planning.</p>
+                <h3>Home Defense</h3>
+                <p>Comprehensive home defense solutions tailored to your property, lifestyle, and risk profile. From safe rooms to emergency protocols, we build your first line of defense.</p>
             </div>
             <div class="security-card">
-                <h3>Ongoing Support</h3>
-                <p>Long-term partnership, not one-time engagements. Continuous monitoring, quarterly assessments, and adaptive security evolution.</p>
+                <h3>Home Threat Assessment</h3>
+                <p>Have a team of Special Operations Veterans walk through your home and identify the strengths, weaknesses, and defendable positions. We deep-dive into your emergency preparedness and help you plan for worst-case scenarios.</p>
+            </div>
+            <div class="security-card">
+                <h3>School Security</h3>
+                <p>Our comprehensive security strategies, coupled with dedication to excellence, make us the premier choice for schools seeking reliable and effective security. We work with administrators, staff, and local LE.</p>
+            </div>
+            <div class="security-card">
+                <h3>Security Consulting</h3>
+                <p>We become your security advisory board and provide ongoing assistance to you, your family, or your company. Long-term partnership, not a one-time engagement.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="mailto:info@defensestrategies.us?subject=Consultation Request" class="btn-primary" style="display: inline-block;">Schedule a Consultation</a>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews">
+        <h2>What Clients Say</h2>
+        <p class="subtitle">Real feedback from real students — civilians, veterans, and law enforcement who have trained with DSG.</p>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Hands down the best combat pistol training I've ever had. Mike and the team run an incredibly tight, professional operation. You walk away with real skills, not just range time."</p>
+                <div class="review-author">Nano R.</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The CQC course was absolutely elite. These guys have the real-world experience to back everything they teach. Highly recommend for anyone serious about self-defense and tactical training."</p>
+                <div class="review-author">Tim K.</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Worth every penny. The instruction is methodical, patient, and effective. I came in a solid shooter and left a significantly better one. Will be back for the advanced course."</p>
+                <div class="review-author">T.Y.</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Top-tier instructors who actually care about your development. The scenario-based training is next level — nothing like static range drills. Real pressure, real learning."</p>
+                <div class="review-author">Alex</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TTG SOCALSKIRMISH SECTION -->
+    <section id="skirmish">
+        <div class="skirmish-inner">
+            <div>
+                <h2>TTG SoCal Skirmish</h2>
+                <p class="skirmish-desc">A single-day competitive event consisting of 4 stages designed to prepare you for a TTG Regional Event. Open to all skill levels — sign up solo or bring your crew.</p>
+                <p class="skirmish-desc" style="margin-top: 14px;">Real scenarios. Real teamwork. Real pressure. Hosted by Defense Strategies Group in Southern California. Register via PractiScore.</p>
+            </div>
+            <div class="skirmish-events">
+                <h3>Upcoming Events</h3>
+                <div class="event-row">
+                    <div class="event-date">May 9</div>
+                    <div class="event-label">TTG SoCal Skirmish · Southern California</div>
+                    <a href="https://practiscore.com" target="_blank" class="event-register">Register</a>
+                </div>
+                <div class="event-row">
+                    <div class="event-date">Jul 18</div>
+                    <div class="event-label">TTG SoCal Skirmish · Southern California</div>
+                    <a href="https://practiscore.com" target="_blank" class="event-register">Register</a>
+                </div>
+                <div class="event-row">
+                    <div class="event-date">Sep 19</div>
+                    <div class="event-label">TTG SoCal Skirmish · Southern California</div>
+                    <a href="https://practiscore.com" target="_blank" class="event-register">Register</a>
+                </div>
+                <div class="event-row">
+                    <div class="event-date">Oct 24</div>
+                    <div class="event-label">TTG SoCal Skirmish · Southern California</div>
+                    <a href="https://practiscore.com" target="_blank" class="event-register">Register</a>
+                </div>
             </div>
         </div>
     </section>
