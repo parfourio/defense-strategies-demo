@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defense Strategies Group - Elite Security & Tactical Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            background-color: #1a2a3a;
+            line-height: 1.6;
+        }
+
+        /* ============ OUTREACH BANNER ============ */
+        .outreach-banner {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, #b8860b 0%, #debb6a 100%);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            font-size: 14px;
+            color: #1a2a3a;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .outreach-banner p {
+            flex: 1;
+            margin: 0;
+        }
+
+        .outreach-banner a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .outreach-banner a:hover {
+            background-color: #1d4ed8;
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .outreach-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .outreach-banner a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ============ NAVIGATION ============ */
+        nav {
+            position: fixed;
+            top: 55px;
+            width: 100%;
+            background-color: rgba(26, 42, 58, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+            border-bottom: 1px solid rgba(138, 155, 176, 0.1);
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .nav-brand-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .nav-brand-tagline {
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: #8a9bb0;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #253551;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #8a9bb0;
+        }
+
+        .cta-button {
+            background-color: #253551;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid #253551;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #253551;
+            border-color: #253551;
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                padding: 12px 20px;
+            }
+            .nav-links {
+                gap: 24px;
+            }
+            .nav-links a {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 12px;
+            }
+            .nav-brand-name {
+                font-size: 16px;
+            }
+            .nav-links {
+                gap: 16px;
+                font-size: 10px;
+            }
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 10px;
+            }
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #0d1117 0%, #1a2a3a 50%, #253551 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 53, 81, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 53, 81, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(138, 155, 176, 0.15);
+            border: 1px solid rgba(138, 155, 176, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #8a9bb0;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            line-height: 1.2;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .hero h1 em {
+            color: #253551;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #8a9bb0;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #253551;
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid #253551;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(37, 53, 81, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 53, 81, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid #8a9bb0;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: #8a9bb0;
+            color: #0d1117;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(138, 155, 176, 0.2);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            opacity: 0.9;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            color: #253551;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #8a9bb0;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            .hero-stats {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                margin-top: 120px;
+                padding: 40px 20px;
+            }
+            .hero h1 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            .hero-subtitle {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 50px;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                padding: 14px 24px;
+                font-size: 12px;
+            }
+            .hero-stats {
+                gap: 30px;
+            }
+        }
+
+        /* ============ SECTION STYLES ============ */
+        section {
+            padding: 100px 40px;
+        }
+
+        section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 52px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        section > .subtitle {
+            font-size: 16px;
+            color: #8a9bb0;
+            max-width: 700px;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .section-dark {
+            background-color: #0d1117;
+        }
+
+        .section-darker {
+            background-color: #0a0e12;
+        }
+
+        /* ============ TRAINING SECTION ============ */
+        #training {
+            background-color: #1a2a3a;
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .training-card {
+            background-color: rgba(37, 53, 81, 0.3);
+            border: 1px solid rgba(138, 155, 176, 0.2);
+            padding: 40px 30px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .training-card:hover {
+            border-color: rgba(138, 155, 176, 0.5);
+            background-color: rgba(37, 53, 81, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .training-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .training-card p {
+            font-size: 14px;
+            color: #8a9bb0;
+            line-height: 1.7;
+        }
+
+        /* ============ SECURITY SECTION ============ */
+        #security {
+            background-color: #0d1117;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .security-card {
+            background-color: rgba(138, 155, 176, 0.08);
+            border: 1px solid rgba(138, 155, 176, 0.15);
+            padding: 40px 30px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .security-card:hover {
+            border-color: rgba(138, 155, 176, 0.4);
+            background-color: rgba(138, 155, 176, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .security-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .security-card p {
+            font-size: 14px;
+            color: #8a9bb0;
+            line-height: 1.7;
+        }
+
+        /* ============ ABOUT SECTION ============ */
+        #about {
+            background-color: #1a2a3a;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .about-bio {
+            font-size: 16px;
+            color: #8a9bb0;
+            line-height: 1.9;
+        }
+
+        .about-bio strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .credential {
+            background-color: rgba(37, 53, 81, 0.4);
+            border-left: 4px solid #253551;
+            padding: 20px 24px;
+            border-radius: 2px;
+        }
+
+        .credential-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .credential-desc {
+            font-size: 13px;
+            color: #8a9bb0;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        #contact {
+            background-color: #0d1117;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            margin-bottom: 30px;
+        }
+
+        .contact-subtitle {
+            font-size: 16px;
+            color: #8a9bb0;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .contact-method {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #8a9bb0;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-value {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .contact-value:hover {
+            color: #253551;
+        }
+
+        .contact-cta {
+            background-color: #253551;
+            color: #ffffff;
+            padding: 18px 48px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid #253551;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .contact-cta:hover {
+            background-color: transparent;
+            color: #253551;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 53, 81, 0.3);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background-color: #0a0e12;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(138, 155, 176, 0.1);
+        }
+
+        footer p {
+            font-size: 12px;
+            color: #8a9bb0;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 20px;
+            }
+
+            section h2 {
+                font-size: 36px;
+            }
+
+            section > .subtitle {
+                font-size: 14px;
+            }
+
+            .training-grid,
+            .security-grid {
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- OUTREACH BANNER -->
+    <div class="outreach-banner">
+        <p>Hey Mike — I found your site and put together this free concept redesign. No pitch, just want to know what you think.</p>
+        <a href="mailto:scott@parfour.io">Reply to Scott →</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-brand">
+            <div class="nav-brand-name">DSG</div>
+            <div class="nav-brand-tagline">Defense Strategies Group</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#training">Training</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="cta-button">Work With Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Navy SEAL Founded · UCSD MBA</div>
+            <h1>Protect What<br/><em>Matters Most.</em></h1>
+            <p class="hero-subtitle">Elite-level security consulting and tactical training from Navy SEAL and special operations veterans. Protecting corporations, executives, and critical assets.</p>
+
+            <div class="hero-buttons">
+                <a href="#training" class="btn-primary">Explore Training</a>
+                <a href="#security" class="btn-secondary">Security Consulting</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">20+</div>
+                    <div class="stat-label">Yrs Tier 1 Exp</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">SEAL</div>
+                    <div class="stat-label">Qualified</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">MBA</div>
+                    <div class="stat-label">Trained</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">UCSD</div>
+                    <div class="stat-label">Alumni</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINING SECTION -->
+    <section id="training">
+        <h2>Tactical Training</h2>
+        <p class="subtitle">Purpose-built programs for teams that demand excellence. From entry-level fundamentals to elite operator certification.</p>
+
+        <div class="training-grid">
+            <div class="training-card">
+                <h3>Operator Essentials</h3>
+                <p>Foundation-level tactical and technical training. Real-world scenario-based curriculum covering threat assessment, evasion, and emergency response protocols.</p>
+            </div>
+            <div class="training-card">
+                <h3>Executive Protection</h3>
+                <p>Specialized course for security professionals protecting high-profile individuals. Advanced techniques in threat analysis, travel security, and incident response.</p>
+            </div>
+            <div class="training-card">
+                <h3>Team Readiness</h3>
+                <p>Build organizational resilience. Multi-day programs for corporate security teams, remote response units, and special incident response groups.</p>
+            </div>
+            <div class="training-card">
+                <h3>Advanced Operations</h3>
+                <p>Elite-tier training for operators seeking tier-1 capabilities. Includes advanced tradecraft, counter-surveillance, and complex scenario management.</p>
+            </div>
+            <div class="training-card">
+                <h3>Crisis Leadership</h3>
+                <p>Train your leadership team to make sound decisions under extreme pressure. Decision-making frameworks proven in high-stakes environments.</p>
+            </div>
+            <div class="training-card">
+                <h3>Custom Solutions</h3>
+                <p>Organization-specific training programs. We assess your unique vulnerabilities and design curriculum tailored to your team and threat landscape.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECURITY SECTION -->
+    <section id="security">
+        <h2>Security Consulting</h2>
+        <p class="subtitle">Data-driven intelligence and strategic planning to identify, assess, and eliminate threats to your organization.</p>
+
+        <div class="security-grid">
+            <div class="security-card">
+                <h3>Threat Assessment</h3>
+                <p>Comprehensive evaluation of your current threat landscape. Competitive analysis, geopolitical exposure, and personnel vulnerability profiles.</p>
+            </div>
+            <div class="security-card">
+                <h3>Security Architecture</h3>
+                <p>Build a scalable security infrastructure. Strategic planning and implementation of physical, cyber, and personnel security frameworks.</p>
+            </div>
+            <div class="security-card">
+                <h3>Crisis Management</h3>
+                <p>Preparation and response planning for worst-case scenarios. Protocols, communication strategies, and recovery frameworks.</p>
+            </div>
+            <div class="security-card">
+                <h3>Travel Security</h3>
+                <p>Comprehensive protection for high-risk travel. Route planning, accommodation security, ground coordination, and real-time incident response.</p>
+            </div>
+            <div class="security-card">
+                <h3>Cyber Intelligence</h3>
+                <p>Blend of technical security and human intelligence. Digital risk assessment, vulnerability mapping, and strategic protection planning.</p>
+            </div>
+            <div class="security-card">
+                <h3>Ongoing Support</h3>
+                <p>Long-term partnership, not one-time engagements. Continuous monitoring, quarterly assessments, and adaptive security evolution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="about-content">
+            <h2>About Mike O'Dowd</h2>
+            <p class="subtitle">The mindset of an operator, the discipline of a strategist.</p>
+
+            <div class="about-grid">
+                <div class="about-bio">
+                    <p><strong>Mike O'Dowd</strong> is a former Navy SEAL with over two decades of experience in high-stakes tactical and security operations. His background spans special operations command, corporate security consulting, and strategic risk management.</p>
+                    <p style="margin-top: 16px;">A graduate of UC San Diego with an MBA in strategic business management, Mike bridges the gap between operational excellence and corporate strategy. He understands how elite-level thinking translates to organizational success.</p>
+                    <p style="margin-top: 16px;">Defense Strategies Group was founded on a simple principle: <strong>the best security is built by people who've operated in the highest-pressure environments.</strong></p>
+                </div>
+
+                <div class="credentials">
+                    <div class="credential">
+                        <div class="credential-title">Navy SEAL</div>
+                        <div class="credential-desc">22 years special operations command, tier-1 tactical certifications</div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-title">UCSD MBA</div>
+                        <div class="credential-desc">Strategic business management & organizational leadership</div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-title">Security Strategist</div>
+                        <div class="credential-desc">20+ years designing and implementing enterprise security frameworks</div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-title">Trusted Advisor</div>
+                        <div class="credential-desc">Works directly with C-suite and government partners on critical asset protection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Ready to Work Together?</h2>
+            <p class="contact-subtitle">Let's discuss how Defense Strategies Group can elevate your security posture and protect what matters most to your organization.</p>
+
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-label">Phone</div>
+                    <a href="tel:+1-858-555-0123" class="contact-value">+1 (858) 555-0123</a>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-label">Email</div>
+                    <a href="mailto:mike@defensestrategies.us" class="contact-value">mike@defensestrategies.us</a>
+                </div>
+            </div>
+
+            <a href="mailto:mike@defensestrategies.us?subject=Consulting%20Inquiry" class="contact-cta">Send Inquiry</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Defense Strategies Group. All rights reserved. UCSD MBA. Navy SEAL Certified.</p>
+    </footer>
+</body>
+</html>

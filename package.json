@@ -1,0 +1,21 @@
+{
+  "name": "defense-strategies-demo",
+  "version": "1.0.0",
+  "description": "Professional redesign concept for Defense Strategies Group",
+  "main": "index.html",
+  "scripts": {
+    "serve": "npx serve . -p 3000",
+    "start": "npx serve . -p $PORT"
+  },
+  "keywords": [
+    "security",
+    "tactical",
+    "defense",
+    "consulting"
+  ],
+  "author": "Scott Schultz",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
