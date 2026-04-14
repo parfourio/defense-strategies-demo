@@ -526,60 +526,135 @@
         }
 
         .about-content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .about-grid {
+        /* founder card — full width, prominent */
+        .founder-card {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            align-items: center;
+            align-items: start;
             margin-top: 50px;
+            background: rgba(37,53,81,0.3);
+            border: 1px solid rgba(138,155,176,0.15);
+            border-left: 4px solid #8a9bb0;
+            padding: 40px;
+            border-radius: 4px;
+            margin-bottom: 32px;
         }
 
-        .about-bio {
-            font-size: 16px;
-            color: #8a9bb0;
-            line-height: 1.9;
-        }
-
-        .about-bio strong {
+        .founder-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
             color: #ffffff;
-            font-weight: 700;
+            letter-spacing: 0.06em;
+            line-height: 1;
+            margin-bottom: 6px;
         }
 
-        .credentials {
+        .member-role-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .role-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 2px;
+            background: rgba(37,53,81,0.6);
+            color: #8a9bb0;
+            border: 1px solid rgba(138,155,176,0.2);
+        }
+
+        .role-badge.founder-badge {
+            background: rgba(138,155,176,0.15);
+            color: #c8d4e0;
+            border-color: rgba(138,155,176,0.35);
+        }
+
+        .founder-bio {
+            font-size: 0.92rem;
+            color: #8a9bb0;
+            line-height: 1.85;
+        }
+
+        .founder-bio p { margin-bottom: 14px; }
+        .founder-bio strong { color: #ffffff; }
+
+        .founder-creds {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
         }
 
         .credential {
             background-color: rgba(37, 53, 81, 0.4);
-            border-left: 4px solid #253551;
-            padding: 20px 24px;
+            border-left: 3px solid rgba(138,155,176,0.3);
+            padding: 16px 20px;
             border-radius: 2px;
         }
 
         .credential-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
+            font-size: 0.95rem;
             color: #ffffff;
             letter-spacing: 1px;
-            margin-bottom: 8px;
-            font-weight: 700;
+            margin-bottom: 6px;
         }
 
         .credential-desc {
-            font-size: 13px;
+            font-size: 0.78rem;
             color: #8a9bb0;
+            line-height: 1.55;
+        }
+
+        /* team grid — 2-col for the 4 instructors */
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .team-card {
+            background: rgba(13,17,23,0.5);
+            border: 1px solid rgba(138,155,176,0.1);
+            padding: 32px 28px;
+            border-radius: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .team-card:hover { border-color: rgba(138,155,176,0.3); }
+
+        .team-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: 0.06em;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .team-bio {
+            font-size: 0.83rem;
+            color: #8a9bb0;
+            line-height: 1.8;
+            margin-top: 14px;
         }
 
         @media (max-width: 768px) {
-            .about-grid {
+            .founder-card {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -817,37 +892,85 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT / MEET THE TEAM SECTION -->
     <section id="about">
         <div class="about-content">
-            <h2>About Mike O'Dowd</h2>
-            <p class="subtitle">The mindset of an operator, the discipline of a strategist.</p>
+            <h2>Meet the Team</h2>
+            <p class="subtitle">Every instructor here has operated at the highest levels. No desk jockeys. No theory without reps.</p>
 
-            <div class="about-grid">
-                <div class="about-bio">
-                    <p><strong>Mike O'Dowd</strong> is a former Navy SEAL with over two decades of experience in high-stakes tactical and security operations. His background spans special operations command, corporate security consulting, and strategic risk management.</p>
-                    <p style="margin-top: 16px;">A graduate of UC San Diego with an MBA in strategic business management, Mike bridges the gap between operational excellence and corporate strategy. He understands how elite-level thinking translates to organizational success.</p>
-                    <p style="margin-top: 16px;">Defense Strategies Group was founded on a simple principle: <strong>the best security is built by people who've operated in the highest-pressure environments.</strong></p>
+            <!-- FOUNDER -->
+            <div class="founder-card">
+                <div>
+                    <div class="founder-name">Mike O'Dowd</div>
+                    <div class="member-role-row">
+                        <span class="role-badge founder-badge">Founder</span>
+                        <span class="role-badge">Navy SEAL</span>
+                    </div>
+                    <div class="founder-bio">
+                        <p>Mike spent over 9 years in Naval Special Warfare with extensive combat operations experience in Iraq and Afghanistan. He served as a JTAC, Intelligence Analyst, Lead Breacher, and Communications Specialist.</p>
+                        <p>He spent his last 3 years in the Navy teaching combat shooting and helping develop the modern-day Combatives program at Basic Underwater Demolition School (BUD/S). He has trained thousands of military members, government employees, law enforcement, and civilians.</p>
+                        <p><strong>MBA, University of California San Diego · B.S., Boston University</strong></p>
+                    </div>
                 </div>
-
-                <div class="credentials">
+                <div class="founder-creds">
                     <div class="credential">
-                        <div class="credential-title">Navy SEAL</div>
-                        <div class="credential-desc">22 years special operations command, tier-1 tactical certifications</div>
+                        <div class="credential-title">Naval Special Warfare</div>
+                        <div class="credential-desc">9+ years — JTAC, Intel Analyst, Lead Breacher, Comms Specialist, Iraq & Afghanistan combat deployments</div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-title">BUD/S Instructor</div>
+                        <div class="credential-desc">3 years teaching combat shooting and developing the modern Navy Combatives program</div>
                     </div>
                     <div class="credential">
                         <div class="credential-title">UCSD MBA</div>
-                        <div class="credential-desc">Strategic business management & organizational leadership</div>
+                        <div class="credential-desc">University of California San Diego · B.S. Boston University</div>
                     </div>
                     <div class="credential">
-                        <div class="credential-title">Security Strategist</div>
-                        <div class="credential-desc">20+ years designing and implementing enterprise security frameworks</div>
-                    </div>
-                    <div class="credential">
-                        <div class="credential-title">Trusted Advisor</div>
-                        <div class="credential-desc">Works directly with C-suite and government partners on critical asset protection</div>
+                        <div class="credential-title">Thousands Trained</div>
+                        <div class="credential-desc">Military, government, law enforcement, and civilian students across all programs</div>
                     </div>
                 </div>
+            </div>
+
+            <!-- INSTRUCTORS GRID -->
+            <div class="team-grid">
+
+                <div class="team-card">
+                    <div class="team-name">Zack Ferguson</div>
+                    <div class="member-role-row">
+                        <span class="role-badge">Instructor</span>
+                        <span class="role-badge">Navy SEAL Team 7</span>
+                    </div>
+                    <div class="team-bio">Former SEAL Team 7 veteran with deployments to Iraq, Yemen, Africa, and the UAE. Lead Sniper/Pointman, JTAC, Combatives Instructor, and Weapons Ordnance Specialist. 10th Planet Jiu-Jitsu purple belt and amateur MMA fighter. Lead instructor at Training Center LA, Beverly Hills. B.S. Organizational Leadership, University of Charleston.</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-name">Cameron Fath</div>
+                    <div class="member-role-row">
+                        <span class="role-badge">Instructor</span>
+                        <span class="role-badge">US Army Ranger</span>
+                    </div>
+                    <div class="team-bio">Former US Army Ranger and California National Guardsman — 9 years of service including deployments to the Middle East and joint training in Europe and Asia. Host of "Toughest Forces on Earth" on Netflix. Owner of KITGOD tactical brand. VP of NEVCAS LLC, government procurement. B.S. Business Management, Pepperdine University.</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-name">Alex Fichtler</div>
+                    <div class="member-role-row">
+                        <span class="role-badge">Instructor</span>
+                        <span class="role-badge">Navy SEAL</span>
+                    </div>
+                    <div class="team-bio">9-year Navy SEAL combat veteran with operational experience in Afghanistan, the Middle East, and Africa. Naval Special Warfare Scout/Sniper and Comms Specialist. Led the NSW Close Quarters Battle (CQB) training cell, instructing thousands of active duty SEALs. EMT certified. Volunteers on Bozeman, MT Search and Rescue. B.S. Organizational Leadership.</div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-name">Nathan Mendes</div>
+                    <div class="member-role-row">
+                        <span class="role-badge">Instructor</span>
+                        <span class="role-badge">USMC · Law Enforcement</span>
+                    </div>
+                    <div class="team-bio">20+ years of local, state, and federal law enforcement — Patrol, K9, SWAT, Sniper/Observer, Homicide, and Narcotics. USMC veteran, deployed to Ar Ramadi, Iraq with the 1st Marine Expeditionary Force. BJJ black belt and owner of Mendes Brazilian Jiu-Jitsu Academy with affiliates in California and Hawaii.</div>
+                </div>
+
             </div>
         </div>
     </section>
