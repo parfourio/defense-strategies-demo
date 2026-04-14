@@ -93,6 +93,11 @@
         /* offset anchor links for sticky banner + fixed nav */
         section[id] { scroll-margin-top: 120px; }
 
+        @media (max-width: 768px) {
+            /* nav is sticky on mobile, ~60px tall */
+            section[id] { scroll-margin-top: 60px; }
+        }
+
         .nav-brand {
             display: flex;
             flex-direction: column;
@@ -186,6 +191,9 @@
 
         @media (max-width: 768px) {
             nav {
+                /* switch from fixed to sticky on mobile so it sits naturally below the banner */
+                position: sticky;
+                top: 0;
                 flex-wrap: wrap;
                 gap: 12px;
                 padding: 12px;
@@ -383,8 +391,8 @@
         @media (max-width: 768px) {
             .hero {
                 height: auto;
-                min-height: 100vh;
-                margin-top: 120px;
+                min-height: calc(100vh - 120px);
+                margin-top: 0;
                 padding: 40px 20px;
             }
             .hero h1 {
